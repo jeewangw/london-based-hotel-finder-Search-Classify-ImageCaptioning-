@@ -17,7 +17,9 @@ We then create word search which takes multiple words and finds documents that c
     ## (4) Word ordering score 
     ## (5) Exact match bonus
     ## (6) Rank and Return
- 
+    
+ # Challenging
+ The web application splits up the query into words and treat them separately. So, if users enter a sequence of terms, such as the hotel name, the hotel with the expected title would have lower priority than other hotel that contains the terms in the query with more occurrences.
  
  # Refrence
  Dataset is taken from: https://www.kaggle.com/PromptCloudHQ/reviews-of-londonbased-hotels
