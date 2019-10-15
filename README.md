@@ -21,6 +21,7 @@ We then create word search which takes multiple words and finds documents that c
  
  # Refrence
  Dataset is taken from: https://www.kaggle.com/PromptCloudHQ/reviews-of-londonbased-hotels
+ 
  Formulae for TF-IDF is taken from Amit Kumar Jaiswal article: https://www.kaggle.com/amitkumarjaiswal/nlp-search-engine
  
  
