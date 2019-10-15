@@ -11,13 +11,16 @@ Now, we need to create inverse index which gives document number for each docume
 # PART III: The Search Engine
 We then create word search which takes multiple words and finds documents that contain both along with metrics for ranking:
  
-    ## (1) Number of occruances of search words 
+    ## (1) Number of occurences of search words 
     ## (2) TD-IDF score for search words 
     ## (3) Percentage of search terms
     ## (4) Word ordering score 
     ## (5) Exact match bonus
     ## (6) Rank and Return
     
+ # PART IV: Setting up Frontend section and Finalizing the web application
+ We need to use html, css, bootstrap 4 and javascript for the front end. We used javascript just to hightlight the search terms. When the application is ready, it looks like this http://jeewangw.pythonanywhere.com/
+ 
  # Challenging
  The web application splits up the query into words and treat them separately. So, if users enter a sequence of terms, such as the hotel name, the hotel with the expected title would have lower priority than other hotel that contains the terms in the query with more occurrences.
  
