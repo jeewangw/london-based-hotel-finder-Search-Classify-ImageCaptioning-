@@ -1,5 +1,5 @@
 # PART I: Preparing the documents/webpages
-When you want to search for something online, you look onto Google or Bing. They contain more data and also they are faster as their algorithm is really good. In this article, I am going to implement a search feature which is very similar to a smaller version of Google or Bing search engine. I will be using Python-Flask in this tutorial. We can flow with me together.
+When you want to search for something online, you look onto Google or Bing. They contain more data and also they are faster as their algorithm is really good. In this article, I am going to implement a search feature which is very similar to a smaller version of Google or Bing search engine. I will be using Python-Flask in this tutorial. You can flow with me together.
  
 At first we start to work in backend. For that we need to load essential libraries. For this project, we need numpy, pandas and nltk libraries.
  
