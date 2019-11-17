@@ -6,35 +6,66 @@
     <title>Search</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<body>
-    {% for rows in stemmer %}
-     {{rows}}
-    {% endfor %}
+<body onload="myFunction()">
+    <br>
+    <h1 class="display-4 text-capitalize bg-success text-white text-center">London-based Hotel Finder</h1>
+    <br>
+    <form action = "/result" method = "POST">
+		 <div class="input-group input-group-lg container form-control">
+		  <div class="input-group-prepend">
+		    <span class="input-group-text" id="inputGroup-sizing-lg">Hotel Finder</span>
+		  </div>
+		  <input type="text" class="form-control" name="nm" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+		  <button type="submit" class="ml-4 btn btn-primary btn-lg">Submit</button>
+		</div>
+	</form>
+
+    <div class="mt-1">
+        <p class="display-5 text-center"><span class="font-weight-bold">Stem words:</span>
+         {% for rows in stemmer %}
+         {{rows}}
+        {% endfor %}
+        </p>
+    </div>
 
         <div class=" container-fluid ">
               <table class="table table-striped table-sm">
                <thead>
-                 <tr>
-                    <th scope="col" class="text-center">Review Text</th>
-                     <th scope="col">Location</th>
+                 <tr class="bg-primary">
+                    <th scope="col" class="text-center text-white">Hotel Name</th>
+                     <th scope="col" class="text-white text-center">Review</th>
+                     <th scope="col" class="text-white text-center">TF-IDF SCORE</th>
                  </tr>
                 </thead>
-              <tbody class="container">
-                {% for num, prediction in tables %}
+              <tbody class="container" id="demo">
+                {% for num, prediction,tfidf in tables %}
                <tr>
                <td>{{ num }}</td>
-               <td>{{ prediction }}</td>
-                 </tr>
+               <td >{{ prediction }}</td>
+                   <td >{{ tfidf }}</td>
+               </tr>
                 {% endfor %}
 
               </tbody>
             </table>
         </div>
 
-
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        function myFunction() {
+          var numbers = {{stemmer | tojson}};
+          console.log (numbers);
 
+          numbers.forEach(myFunc);
+
+            function myFunc(item, index) {
+              var str = document.getElementById("demo").innerHTML;
+              var res = str.replace(new RegExp(numbers[index], "g"), "<b>" +numbers[index]+ "</b>" );
+              document.getElementById("demo").innerHTML = res;
+            }
+        }
+    </script>
 </body>
 </html>
