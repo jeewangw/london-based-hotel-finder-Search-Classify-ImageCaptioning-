@@ -8,7 +8,7 @@ In order to perform a very similar search method to a simple Google edition, the
 
 PART I: Preparing the documents/webpages
 We begin to work in the backend at first. We have to load important libraries for this purpose. We need numpy libraries, pandas and nltk for this project. We will then use the csv file open command. We must use the pandas library for this purpose. I take a list of hotel feedback I find in Kaggle for this project. 
-# Load libraries
+  # Load libraries
 import pandas as pd
 import numpy as np
 import nltk
