@@ -8,43 +8,43 @@ In order to perform a very similar search method to a simple Google edition, the
 
 PART I: Preparing the documents/webpages
 We begin to work in the backend at first. We have to load important libraries for this purpose. We need numpy libraries, pandas and nltk for this project. We will then use the csv file open command. We must use the pandas library for this purpose. I take a list of hotel feedback I find in Kaggle for this project. 
-    # Load libraries
-  import pandas as pd
-  import numpy as np
-  import nltk
-  df = pd.read_csv('./static/fewLondon.csv', encoding='latin-1')
-  df = df.loc[df['ReviewText'].str.contains('foo') == False]
+          # Load libraries
+          import pandas as pd
+          import numpy as np
+          import nltk
+          df = pd.read_csv('./static/fewLondon.csv', encoding='latin-1')
+          df = df.loc[df['ReviewText'].str.contains('foo') == False]
 Now we have to remove punctuation from all documents and tokenize words in all documents. When this is done, we need to make all the words lowercase for all documents. There are many terms that are not so important to consider because they are used many times in every document such as pronouns, to-be verbs, or prepositions. Such words are known as stop words. The next step is to remove stop words from all documents. Moreover, one word has many various forms in English, such as tenses or plural. So, we also need to perform stemming to shorten these words and treat them as the same. After these 2 steps, we cut down a big size of memory to store all the terms.
-  # remove punctuation from all DOCs
-exclude = set(string.punctuation)
-alldocslist = []
+       # remove punctuation from all DOCs
+        exclude = set(string.punctuation)
+        alldocslist = []
 
-for index, i in enumerate(searching):
-    text = searching
-    text = ''.join(ch for ch in text if ch not in exclude)
-    alldocslist.append(text)
-# tokenize words in all DOCS
-plot_data = [[]] * len(alldocslist)
+        for index, i in enumerate(searching):
+            text = searching
+            text = ''.join(ch for ch in text if ch not in exclude)
+            alldocslist.append(text)
+        # tokenize words in all DOCS
+        plot_data = [[]] * len(alldocslist)
 
-for doc in alldocslist:
-    text = doc
-    tokentext = word_tokenize(text)
-    plot_data[index].append(tokentext)
-# make all words lower case for all docs
-for x in range(len(searching)):
-    lowers = [word.lower() for word in plot_data[0][x]]
-    plot_data[0][x] = lowers
+    for doc in alldocslist:
+        text = doc
+        tokentext = word_tokenize(text)
+        plot_data[index].append(tokentext)
+    # make all words lower case for all docs
+        for x in range(len(searching)):
+         lowers = [word.lower() for word in plot_data[0][x]]
+         plot_data[0][x] = lowers
 
-print(plot_data[0][1][0:4])
+    print(plot_data[0][1][0:4])
 
-# remove stop words from all docs
-stop_words = set(stopwords.words('english'))
+    # remove stop words from all docs
+    stop_words = set(stopwords.words('english'))
 
-for x in range(len(searching)):
-    filtered_sentence = [w for w in plot_data[0][x] if not w in stop_words]
-    plot_data[0][x] = filtered_sentence
+        for x in range(len(searching)):
+        filtered_sentence = [w for w in plot_data[0][x] if not w in stop_words]
+       plot_data[0][x] = filtered_sentence
 
-print(plot_data[0][1][0:4])
+        print(plot_data[0][1][0:4])
 
     # stem words EXAMPLE (could try others/lemmers )
 
