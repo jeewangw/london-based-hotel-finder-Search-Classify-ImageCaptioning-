@@ -8,14 +8,14 @@ In order to perform a very similar search method to a simple Google edition, the
 
 PART I: Preparing the documents/webpages
 We begin to work in the backend at first. We have to load important libraries for this purpose. We need numpy libraries, pandas and nltk for this project. We will then use the csv file open command. We must use the pandas library for this purpose. I take a list of hotel feedback I find in Kaggle for this project. 
-  # Load libraries
-import pandas as pd
-import numpy as np
-import nltk
-df = pd.read_csv('./static/fewLondon.csv', encoding='latin-1')
-df = df.loc[df['ReviewText'].str.contains('foo') == False]
+    # Load libraries
+  import pandas as pd
+  import numpy as np
+  import nltk
+  df = pd.read_csv('./static/fewLondon.csv', encoding='latin-1')
+  df = df.loc[df['ReviewText'].str.contains('foo') == False]
 Now we have to remove punctuation from all documents and tokenize words in all documents. When this is done, we need to make all the words lowercase for all documents. There are many terms that are not so important to consider because they are used many times in every document such as pronouns, to-be verbs, or prepositions. Such words are known as stop words. The next step is to remove stop words from all documents. Moreover, one word has many various forms in English, such as tenses or plural. So, we also need to perform stemming to shorten these words and treat them as the same. After these 2 steps, we cut down a big size of memory to store all the terms.
-# remove punctuation from all DOCs
+  # remove punctuation from all DOCs
 exclude = set(string.punctuation)
 alldocslist = []
 
@@ -46,7 +46,7 @@ for x in range(len(searching)):
 
 print(plot_data[0][1][0:4])
 
-# stem words EXAMPLE (could try others/lemmers )
+    # stem words EXAMPLE (could try others/lemmers )
 
 snowball_stemmer = SnowballStemmer("english")
 stemmed_sentence = [snowball_stemmer.stem(w) for w in filtered_sentence]
@@ -68,7 +68,7 @@ TF-IDF = TF * IDF
 
 tfidf_paragraph = tfidf(df['ReviewText'])
 def tfidf( paragraph ):
-    # Tokenize using the white spaces
+     # Tokenize using the white spaces
     dictOfWords = {}
     for index, sentence in enumerate(paragraph):
         try:
