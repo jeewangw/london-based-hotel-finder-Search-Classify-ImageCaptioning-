@@ -190,7 +190,9 @@ Now, we need to create inverse index which gives document number for each docume
 <b>PART III: Setting up Frontend section and Finalizing the web application</b>
 
 We then create word search which takes multiple words and finds documents that contain both along with metrics for ranking. The results are sorted according to TF-IDF score. We use HTML5, CSS3, bootstrap 4 and javascript for the front end and we use javascript to highlight search terms. When the application is ready, it should work like this http://jeewangw.pythonanywhere.com/
-Contribution and Challenging
+
+<b>Contribution and Challenging</b>
+
 The dataset that I found on the kaggle was not correctly formatted and encoded. So, it created many problems while working on backend. I spent many hours trying to fix the problem. At first, I thought to change the dataset, later I decided to fix the problems and did more research on the problem. Finally, after a week, I came to the solution myself. I had to use try-catch exception in many sections of the code to make it workable. It was the most challenging part while working on Text Search. One of my contributions was fixing that problem. Other contributions were saving calculated TF-IDF score in CSV format for each document and designing and developing the front-end. Most of the back-end part was already done but it was not made for my dataset. So, I had to modify 60% of it. 
 
           for i in range(0, len(normalizedTermFrequency)):
