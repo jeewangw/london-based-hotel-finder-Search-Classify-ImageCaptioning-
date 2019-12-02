@@ -229,3 +229,21 @@ The 'english' stemmer is better than the original 'porter' stemmer.
 References
 Dataset is taken from: https://www.kaggle.com/PromptCloudHQ/reviews-of-londonbased-hotels
 Formulae for TF-IDF is taken from Amit Kumar Jaiswal article: https://www.kaggle.com/amitkumarjaiswal/nlp-search-engine
+
+
+
+Image Caption Search
+People are often confused with Image Captioning and Image Classification. Image Classification tells which object, like dog, cat or people, is in the picture. While Image Captioning gives a description of the image like a dog is having food. In this article, I give you an idea of how to build Image Captioning and search those captions based on the TFIDF score.
+Caption generation is a challenging artificial intelligence problem where a textual description must be generated for a given image. It requires both computer vision concept to process the image and model of NLP to understand the image and right it in words I use the Tensor flow official website for understanding the code and use fliker dataset to train the model.
+Libraries of python 3 which I used are Matplotlib, Pandas, numpy, and Keras.
+I built my image captioning model by taking guideline from this site: https://machinelearningmastery.com/develop-a-deep-learning-caption-generation-model-in-python/
+Before starting building Image Captioning, make sure you setup your environment for machine learning. Here is the site that I took reference to setup my python/anaconda environment: https://machinelearningmastery.com/setup-python-environment-machine-learning-deep-learning-anaconda/
+If you follow the steps carefully without missing any part, you will get results in 3/4 hours depending upon the speed of your computer. Captions are generated in a text file so I converted it in Excel file. Now, it's time to build a search engine that searches the user's searched caption in the dataset and retrieves results based on the sorting order of the TFIDF result. I already have created Text Search in Phase 1. The algorithm is the same. Here is the link to my Phase 1 documentation: https://medium.com/@jeevangyawali_35083/text-search-based-on-tf-idf-score-a0a0ceff1cad
+Image Caption SearchContribution and Challenging
+I modified the code to work for my image dataset and exported the results in xlms format. Hosting 1.03 GB images was challenging. I used 000webhost to host 1 GB images in free of cost. Out of 8k images, 500 images were not uploaded in the hosting site because of the size limit. The web application doesn't display those 500 images when a user searches on the application. Here is the link where I uploaded flickr8k images: http://jeevangyawaliflicker8kimages.000webhostapp.com/?dir=Images/
+References
+https://www.tensorflow.org/tutorials/text/image_captioning
+https://machinelearningmastery.com/develop-a-deep-learning-caption-generation-model-in-python/
+https://machinelearningmastery.com/setup-python-environment-machine-learning-deep-learning-anaconda/
+https://medium.com/@jeevangyawali_35083/text-search-based-on-tf-idf-score-a0a0ceff1cad
+http://jeevangyawaliflicker8kimages.000webhostapp.com/?dir=Images/
