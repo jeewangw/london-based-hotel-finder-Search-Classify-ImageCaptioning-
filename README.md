@@ -1,4 +1,4 @@
-Text Search Based on TF-IDF Score
+<h1>Text Search Based on TF-IDF Score</h1>
 ---
 
 In order to perform a very similar search method to a simple Google edition, the simplest way is to use the Bag of Words model to measure each word in the dataset. Therefore, when you enter a query, the application will return the documents with the largest total weight in the query terms. I will be using Python-Flask in this tutorial. You can flow with me together.
@@ -6,7 +6,8 @@ In order to perform a very similar search method to a simple Google edition, the
 
 ---
 
-PART I: Preparing the documents/webpages
+<b>PART I: Preparing the documents/webpages</b>
+
 We begin to work in the backend at first. We have to load important libraries for this purpose. We need numpy libraries, pandas and nltk for this project. We will then use the csv file open command. We must use the pandas library for this purpose. I take a list of hotel feedback I find in Kaggle for this project. 
 
           # Load libraries
@@ -60,7 +61,8 @@ Now we have to remove punctuation from all documents and tokenize words in all d
           stemmed_sentence = [porter_stemmer.stem(w) for w in filtered_sentence]
           stem2 = stemmed_sentence
           
-PART II: CREATING THE INVERSE-INDEX
+<b>PART II: CREATING THE INVERSE-INDEX</b>
+
 Now, we need to create inverse index which gives document number for each document and where word appears. At first, we need to create a list of all words. Then we have to make one-time indexing which is the most processor-intensive step and will take time to run. But we only need to run this once because we are going to save this to avoid recalculation.
 
           TF (Term Frequency) measures the frequency of a word in a document.
@@ -185,7 +187,8 @@ Now, we need to create inverse index which gives document number for each docume
                         #print(dictOFTF_IDF)
                         return dictOFTF_IDF
                         
-PART III: Setting up Frontend section and Finalizing the web application
+<b>PART III: Setting up Frontend section and Finalizing the web application</b>
+
 We then create word search which takes multiple words and finds documents that contain both along with metrics for ranking. The results are sorted according to TF-IDF score. We use HTML5, CSS3, bootstrap 4 and javascript for the front end and we use javascript to highlight search terms. When the application is ready, it should work like this http://jeewangw.pythonanywhere.com/
 Contribution and Challenging
 The dataset that I found on the kaggle was not correctly formatted and encoded. So, it created many problems while working on backend. I spent many hours trying to fix the problem. At first, I thought to change the dataset, later I decided to fix the problems and did more research on the problem. Finally, after a week, I came to the solution myself. I had to use try-catch exception in many sections of the code to make it workable. It was the most challenging part while working on Text Search. One of my contributions was fixing that problem. Other contributions were saving calculated TF-IDF score in CSV format for each document and designing and developing the front-end. Most of the back-end part was already done but it was not made for my dataset. So, I had to modify 60% of it. 
@@ -208,7 +211,8 @@ The dataset that I found on the kaggle was not correctly formatted and encoded. 
           #print(dictOFTF_IDF)
           return dictOFTF_IDF
           
-Experiments
+<b>Experiments</b>
+
 The 'english' stemmer is better than the original 'porter' stemmer.
 
           print(SnowballStemmer("english").stem("generously"))
@@ -226,22 +230,33 @@ The 'english' stemmer is better than the original 'porter' stemmer.
           porter_stemmer = PorterStemmer()
           stemmed_sentence = [porter_stemmer.stem(w) for w in filtered_sentence]
           stem2 = stemmed_sentence
-References
+<b>References</b>
+
 Dataset is taken from: https://www.kaggle.com/PromptCloudHQ/reviews-of-londonbased-hotels
 Formulae for TF-IDF is taken from Amit Kumar Jaiswal article: https://www.kaggle.com/amitkumarjaiswal/nlp-search-engine
 
 
 
-Image Caption Search
+<h1>Image Caption Search</h1>
+
 People are often confused with Image Captioning and Image Classification. Image Classification tells which object, like dog, cat or people, is in the picture. While Image Captioning gives a description of the image like a dog is having food. In this article, I give you an idea of how to build Image Captioning and search those captions based on the TFIDF score.
+
 Caption generation is a challenging artificial intelligence problem where a textual description must be generated for a given image. It requires both computer vision concept to process the image and model of NLP to understand the image and right it in words I use the Tensor flow official website for understanding the code and use fliker dataset to train the model.
+
 Libraries of python 3 which I used are Matplotlib, Pandas, numpy, and Keras.
+
 I built my image captioning model by taking guideline from this site: https://machinelearningmastery.com/develop-a-deep-learning-caption-generation-model-in-python/
+
 Before starting building Image Captioning, make sure you setup your environment for machine learning. Here is the site that I took reference to setup my python/anaconda environment: https://machinelearningmastery.com/setup-python-environment-machine-learning-deep-learning-anaconda/
+
 If you follow the steps carefully without missing any part, you will get results in 3/4 hours depending upon the speed of your computer. Captions are generated in a text file so I converted it in Excel file. Now, it's time to build a search engine that searches the user's searched caption in the dataset and retrieves results based on the sorting order of the TFIDF result. I already have created Text Search in Phase 1. The algorithm is the same. Here is the link to my Phase 1 documentation: https://medium.com/@jeevangyawali_35083/text-search-based-on-tf-idf-score-a0a0ceff1cad
-Image Caption SearchContribution and Challenging
+
+<b>Contribution and Challenging</b>
+
 I modified the code to work for my image dataset and exported the results in xlms format. Hosting 1.03 GB images was challenging. I used 000webhost to host 1 GB images in free of cost. Out of 8k images, 500 images were not uploaded in the hosting site because of the size limit. The web application doesn't display those 500 images when a user searches on the application. Here is the link where I uploaded flickr8k images: http://jeevangyawaliflicker8kimages.000webhostapp.com/?dir=Images/
-References
+
+<b>References</b>
+
 https://www.tensorflow.org/tutorials/text/image_captioning
 https://machinelearningmastery.com/develop-a-deep-learning-caption-generation-model-in-python/
 https://machinelearningmastery.com/setup-python-environment-machine-learning-deep-learning-anaconda/
