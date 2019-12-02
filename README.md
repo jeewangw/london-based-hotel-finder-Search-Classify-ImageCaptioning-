@@ -1,10 +1,7 @@
 <h1>Text Search Based on TF-IDF Score</h1>
----
 
 In order to perform a very similar search method to a simple Google edition, the simplest way is to use the Bag of Words model to measure each word in the dataset. Therefore, when you enter a query, the application will return the documents with the largest total weight in the query terms. I will be using Python-Flask in this tutorial. You can flow with me together.
 
-
----
 
 <b>PART I: Preparing the documents/webpages</b>
 
