@@ -8,12 +8,12 @@
 </head>
 <body onload="myFunction()">
     <br>
-    <h1 class="display-4 text-capitalize bg-success text-white text-center">London-based Hotel Finder</h1>
+    <h1 class="display-4 text-capitalize bg-success text-white text-center">Image Caption Finder </h1>
     <br>
-    <form action = "/result" method = "POST">
+    <form action = "/resultimage" method = "POST">
 		 <div class="input-group input-group-lg container form-control">
 		  <div class="input-group-prepend">
-		    <span class="input-group-text" id="inputGroup-sizing-lg">Hotel Finder</span>
+		    <span class="input-group-text" id="inputGroup-sizing-lg">Image Caption Search</span>
 		  </div>
 		  <input type="text" class="form-control" name="nm" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
 		  <button type="submit" class="ml-4 btn btn-primary btn-lg">Submit</button>
@@ -32,15 +32,15 @@
               <table class="table table-striped table-sm">
                <thead>
                  <tr class="bg-primary">
-                    <th scope="col" class="text-center text-white">Hotel Name</th>
-                     <th scope="col" class="text-white text-center">Review</th>
+                    <th scope="col" class="text-center text-white">Image</th>
+                     <th scope="col" class="text-white text-center">Captions</th>
                      <th scope="col" class="text-white text-center">TF-IDF SCORE</th>
                  </tr>
                 </thead>
               <tbody class="container" id="demo">
                 {% for num, prediction,tfidf in tables %}
                <tr>
-               <td>{{ num }}</td>
+               <td><img src="http://jeevangyawaliflicker8kimages.000webhostapp.com/Images/{{ num }}" alt={{ num }}></td>
                <td >{{ prediction }}</td>
                    <td >{{ tfidf }}</td>
                </tr>

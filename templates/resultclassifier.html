@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body onload="myFunction()">
+    <br>
+    <h1 class="display-4 text-capitalize bg-success text-white text-center">London-based Hotel Finder</h1>
+    <br>
+    <form action = "/resultclassifier" method = "POST">
+		 <div class="input-group input-group-lg container form-control">
+		  <div class="input-group-prepend">
+		    <span class="input-group-text" id="inputGroup-sizing-lg">Classifier</span>
+		  </div>
+		  <input type="text" class="form-control" name="classifiername" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+		  <button type="submit" class="ml-4 btn btn-primary btn-lg">Submit</button>
+		</div>
+	</form>
+    <div class="container mt-4">
+      <h5 class="display-5 text-capitalize bg-primary text-white text-center">Searched Text => {{search_query}}</h5>
+      <h5 class="display-5  text-center">Predicted Rating => {{predictedrating}} </h5>
+    <div class="row">
+               <div class= "col-lg-6 col-md-6 col-12">
+
+                      
+
+                               <table class="table table-striped">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">Ratings</th>
+                                      <th scope="col">Prediction Probabilities</th>
+                                    </tr>
+                                  </thead>
+                                    <tbody>
+                                         <tr>
+                                         <td>Rating 1</td>
+                                         <td >{{prob1}}</td>
+                                         </tr>
+                                          <tr>
+                                         <td>Rating 2</td>
+                                         <td >{{prob2}}</td>
+                                         </tr>
+                                          <tr>
+                                         <td>Rating 3</td>
+                                         <td >{{prob3}}</td>
+                                         </tr>
+                                          <tr>
+                                         <td>Rating 4</td>
+                                         <td >{{prob4}}</td>
+                                         </tr>
+                                          <tr>
+                                         <td>Rating 5</td>
+                                         <td >{{prob5}}</td>
+                                         </tr>
+                                    </tbody>
+                                </table>
+                     
+                  </div>
+
+              <div class= "col-lg-6 col-md-6 col-12">
+                <div id="piechart">
+                  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+                  <script type="text/javascript">
+                  // Load google charts
+                  google.charts.load('current', {'packages':['corechart']});
+                  google.charts.setOnLoadCallback(drawChart);
+
+                  // Draw the chart and set the chart values
+                  function drawChart() {
+                    var data = google.visualization.arrayToDataTable([
+                    ['Rating', 'Probability'],
+                    ['Rating 1', {{prob1}}],
+                    ['Rating 2', {{prob2}}],
+                    ['Rating 3', {{prob3}}],
+                    ['Rating 4', {{prob4}}],
+                    ['Rating 5', {{prob5}}]
+                  ]);
+
+                    // Optional; add a title and set the width and height of the chart
+                    var options = {'title':'Hotel Rating Prediction', 'width':550, 'height':400};
+
+                    // Display the chart inside the <div> element with id="piechart"
+                    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                    chart.draw(data, options);
+                  }
+                  </script>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
