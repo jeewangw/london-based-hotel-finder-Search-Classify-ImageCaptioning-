@@ -210,6 +210,8 @@ The dataset that I found on the kaggle was not correctly formatted and encoded. 
           #print(dictOFTF_IDF)
           return dictOFTF_IDF
           
+In addition to these, I've also created my web application to translate and search for foreign text.
+          
 <b>Experiments</b>
 
 The 'english' stemmer is better than the original 'porter' stemmer.
@@ -253,6 +255,8 @@ If you follow the steps carefully without missing any part, you will get results
 <b>Contribution and Challenging</b>
 
 I modified the code to work for my image dataset and exported the results in xlms format. Hosting 1.03 GB images was challenging. I used 000webhost to host 1 GB images in free of cost. Out of 8k images, 500 images were not uploaded in the hosting site because of the size limit. The web application doesn't display those 500 images when a user searches on the application. Here is the link where I uploaded flickr8k images: http://jeevangyawaliflicker8kimages.000webhostapp.com/?dir=Images/
+
+In addition to these, I've also created my web application to translate and search for foreign text.
 
 <b>References</b>
 
