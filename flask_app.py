@@ -1,8 +1,5 @@
-import json
-
 from flask import Flask, render_template, request
 from mtranslate import translate
-# Load libraries
 import pandas as pd
 import numpy as np
 import re
@@ -19,16 +16,7 @@ from nltk.stem import SnowballStemmer
 import math
 from textblob import TextBlob as tb
 import pickle
-import sklearn
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.feature_extraction.text import TfidfTransformer
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.pipeline import Pipeline
 import numpy as np
-from sklearn import datasets
-from pprint import pprint
-from sklearn.model_selection import train_test_split
-from sklearn import svm
 import pandas as pd
 
 app = Flask(__name__)
